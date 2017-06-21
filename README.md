@@ -1,10 +1,10 @@
-# Project - *Xây dựng web Blog Tâm Trạng*
+# Project - *WEB ĐẤU GIÁ*
 
-**Xây dựng web Blog Tâm Trạng** là repository cho đồ án nhóm. Nhóm tối đa 4 thành viên.
+**WEB ĐẤU GIÁ** là repository cho đồ án nhóm. Nhóm tối đa 4 thành viên.
 
 Thành viên:
-* [x] **1312432** Phạm Hữu Phong (phphong257)
-* [x] **1312479** Lại Trọng Sang (laitrongsang95)
+* [x] **1412538** Phan Hữu Thuận (RedHair96)
+* [x] **1412557** Phạm Đức Toàn (nhoxtoong)
 
 URL: **URL hosting của đề tài**
 Báo cáo: **URL Github Page của đề tài**
