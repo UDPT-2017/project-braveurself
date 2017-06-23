@@ -36,38 +36,14 @@
 
   <!--STYLES-->
   <link rel="stylesheet" href="/styles/importer.css">
+  <!--STYLES END-->
   <link rel="stylesheet" href="/components/bootstrap/dist/css/bootstrap.css">
   <link rel="stylesheet" href="/styles/layout.css">
-  <!--STYLES END-->
 </head>
 
 <body>
 
 
-
-
-  <!--
-        Client-side Templates
-        ========================
-
-        HTML templates are important prerequisites of modern, rich client applications.
-        To work their magic, frameworks like Backbone, Angular, Ember, and Knockout require
-        that you load these templates client-side.
-
-        By default, your Gruntfile is configured to automatically load and precompile
-        client-side JST templates in your `assets/templates` folder, then
-        include them here automatically (between TEMPLATES and TEMPLATES END).
-
-        To customize this behavior to fit your needs, just edit `tasks/pipeline.js`.
-        For example, here are a few things you could do:
-
-            + Import templates from other directories
-            + Use a different template engine (handlebars, jade, dust, etc.)
-            + Internationalize your client-side templates using a server-side
-              stringfile before they're served.
-    -->
-
-  <!--TEMPLATES-->
   <!-- Navigation -->
   <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
@@ -138,6 +114,30 @@
 
   </div>
   <!-- /.container -->
+
+  <!--
+        Client-side Templates
+        ========================
+
+        HTML templates are important prerequisites of modern, rich client applications.
+        To work their magic, frameworks like Backbone, Angular, Ember, and Knockout require
+        that you load these templates client-side.
+
+        By default, your Gruntfile is configured to automatically load and precompile
+        client-side JST templates in your `assets/templates` folder, then
+        include them here automatically (between TEMPLATES and TEMPLATES END).
+
+        To customize this behavior to fit your needs, just edit `tasks/pipeline.js`.
+        For example, here are a few things you could do:
+
+            + Import templates from other directories
+            + Use a different template engine (handlebars, jade, dust, etc.)
+            + Internationalize your client-side templates using a server-side
+              stringfile before they're served.
+    -->
+
+  <!--TEMPLATES-->
+
   <!--TEMPLATES END-->
 
 
@@ -165,9 +165,10 @@
 
   <!--SCRIPTS-->
   <script src="/js/dependencies/sails.io.js"></script>
+
+  <!--SCRIPTS END-->
   <script src="/components/jquery/dist/jquery.js"></script>
   <script src="/components/bootstrap/dist/js/bootstrap.js"></script>
-  <!--SCRIPTS END-->
 </body>
 
 </html>
