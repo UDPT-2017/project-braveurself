@@ -1,0 +1,17 @@
+{
+  "name": "LastProject",
+  "description": "a Sails application",
+  "main": "app.js",
+  "authors": [
+    "RedHair96"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/UDPT-2017/project-braveurself",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
