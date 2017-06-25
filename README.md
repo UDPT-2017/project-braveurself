@@ -69,6 +69,7 @@ Liệt kê các API nhóm đã sử dụng được ở đây
 Các **yêu cầu chức năng** (check và ghi MSSV vào các phần chức năng đã thực hiện)
 * [x] Giao diện đăng nhập người dùng (1412538).
 * [x] Trang homepage cho phép xem top 5 sản phẩm có giá cao nhất, top 5 sản phẩm được ra giá nhiều nhất, top 5 sản phẩm sắp hết hạn đấu giá (1412538)
+* [x] Bấm vào sản phẩm trên trang chủ sẽ hiện ra thông tin cụ thể của sản phẩm.
 
 
 ## Demo
