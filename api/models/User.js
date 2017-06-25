@@ -5,6 +5,9 @@
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
  */
 
+var bcrypt = require('bcrypt');
+const saltRounds = 10;
+
 module.exports = {
 	attributes: {
 		name: {
@@ -22,6 +25,16 @@ module.exports = {
 	  	rate: {
 	  		type: 'string'
 	  	}
-	}
+	},
+
+	checkPassword: function(username, password, cb) {
+		var salt_pw = bcrypt.genSaltSync(saltRounds);
+		password = bcrypt.hashSync('admin', salt_pw);
+
+		//Get user from database
+		let psDB = bcrypt.hashSync('admin', salt_pw);
+		let err = null;
+		cb(err, password == psDB);
+	},
 };
 
