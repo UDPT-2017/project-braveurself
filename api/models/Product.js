@@ -11,7 +11,7 @@ module.exports = {
 
     attributes: {
         id: {
-            type: 'string'
+            type: 'integer'
         },
 
         name: {
