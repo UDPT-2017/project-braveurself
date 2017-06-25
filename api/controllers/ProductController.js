@@ -17,9 +17,15 @@ module.exports = {
                     });
                 })
             });
-
         });
+    },
 
+    getInfo: function(req, res) {
+        Product.findOne(req.params.id, function(err, result) {
+            res.view('product/info', {
+                product: result,
+            });
+        })
     }
 
     /*

@@ -31,15 +31,19 @@ module.exports.routes = {
      * `assets` directory)                                                      *
      *                                                                          *
      ***************************************************************************/
-
     '/': {
         controller: 'ProductController',
         action: 'getTop5'
     },
-
-    'product/:id': {
+    '/product/:id': {
         controller: 'ProductController',
         action: 'getInfo'
+    },
+    '/login': {
+        view: 'user/login',
+        locals: {
+            layout: null
+        }
     }
 
     /***************************************************************************
