@@ -10,7 +10,7 @@ module.exports = {
         Product.getHighestPriceItems(function(products_HighestPrice) {
             Product.getMostBiddedItems(function(products_MostBidded) {
                 Product.getAlmostExpiredItems(function(products_AlmostExpired) {
-                    res.view('homepage', {
+                    res.view('home/index', {
                         products_HighestPrice: products_HighestPrice,
                         products_MostBidded: products_MostBidded,
                         products_AlmostExpired: products_AlmostExpired
