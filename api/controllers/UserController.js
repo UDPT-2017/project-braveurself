@@ -7,20 +7,20 @@
 
 module.exports = {
 	login: function (req, res) {
-        // let username = req.body.username;
-        // let password = res.body.password;
+        let emailAddress = req.body.emailAddress;
+        let password = req.body.password;
+        let rememberMe = req.body.rememberMe;
 
-        let username = 'admin';
-        let password = 'admin';
-        let rememberMe = true;
-
-        User.checkPassword(username, password, function (err, auth) {
+        User.checkPassword(emailAddress, password, function (err, auth) {
             if (auth) {
+                User.findOne({email: emailAddress}).exec(function(err, result) {
+                    console.log(result);
+                })
                 req.session.authenticated = true;
                 if (rememberMe) {
-                    res.cookie('uniqueID','randomNumber', { maxAge: 365 * 24 * 60 * 60 * 1000, httpOnly: true });
+                    res.cookie('uniqueID','username', { maxAge: 365 * 24 * 60 * 60 * 1000, httpOnly: true });
                 }
-                res.send('Login');
+                res.redirect('/');
             } else {
                 res.send('Your username or your password is wrong');
             }
