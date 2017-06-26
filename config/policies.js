@@ -29,7 +29,8 @@ module.exports.policies = {
   '*': 'flash',
 
   ProductController: {
-    '*' : ['isLogined', 'flash']
+    '*' : ['isLogined', 'flash'],
+    'getTop5': ['flash']
   },
 
   UserController: {

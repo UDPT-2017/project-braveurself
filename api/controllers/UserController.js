@@ -14,11 +14,11 @@ module.exports = {
     },
 
 	login: function (req, res) {
-        let emailAddress = req.body.emailAddress;
+        let email = req.body.email;
         let password = req.body.password;
         let rememberMe = req.body.rememberMe;
 
-        User.checkPassword(emailAddress, password, function (err, auth, userId) {
+        User.checkPassword(email, password, function (err, auth, userId) {
             if (err) {
                 req.session.flash = {
                     error: 'Your email or password was incorrect'
@@ -56,14 +56,7 @@ module.exports = {
 
     create: function (req, res) {
 
-        // let user = req.body;
-        let user = {
-            name: 'Nguyen',
-            email: 'pqnguyen1996@gmail.com',
-            address: 'P.3 Q.2',
-            phoneNumber: '0921122128',
-            password: 'admin'
-        }
+        let user = req.body;
 
         //assign a default value to user rate, therefore the user will be bidded a product
         let defaultRate = 100;
@@ -79,22 +72,22 @@ module.exports = {
                 return;
             }
             else {
-		user.rate = defaultRate;
+                user.rate = defaultRate;
 
-		User.createUser({
-		name: user.name,
-		email: user.email,
-		address: user.address,
-		phoneNumber: user.phoneNumber,
-		rate: user.rate,
-		password: user.password,
-		},function(err, newuser) {
-		if (err) {
-			res.send('There are some thing wrong');
-		}
-		else
-			res.send(newuser);
-		});
+                User.createUser({
+                name: user.name,
+                email: user.email,
+                address: user.address,
+                phoneNumber: user.phoneNumber,
+                rate: user.rate,
+                password: user.password,
+                },function(err, newuser) {
+                if (err) {
+                    res.send('There are some thing wrong');
+                }
+                else
+                    res.redirect('/');
+                });
             }
         })
     }
