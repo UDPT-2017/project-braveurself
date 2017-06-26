@@ -40,10 +40,15 @@ module.exports.routes = {
         action: 'getInfo'
     },
     '/login': {
+        policy: 'flash',
         view: 'user/login',
         locals: {
             layout: null
         }
+    },
+    '/logout': {
+        controller: 'UserController',
+        action: 'logout'
     }
 
     /***************************************************************************
