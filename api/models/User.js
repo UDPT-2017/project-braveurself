@@ -9,32 +9,31 @@ var bcrypt = require('bcrypt');
 const saltRounds = 10;
 
 module.exports = {
-	attributes: {
-		name: {
-  			type: 'string'
-	  	},
-	  	email: {
-	  		type: 'string'
-	  	},
-	  	address: {
-	  		type: 'string'
-	  	},
-	  	phoneNumber: {
-	  		type: 'string'
-	  	},
-	  	rate: {
-	  		type: 'string'
-	  	}
-	},
+    attributes: {
+        name: {
+            type: 'string'
+        },
+        email: {
+            type: 'string'
+        },
+        address: {
+            type: 'string'
+        },
+        phoneNumber: {
+            type: 'string'
+        },
+        rate: {
+            type: 'integer'
+        }
+    },
 
-	checkPassword: function(username, password, cb) {
-		var salt_pw = bcrypt.genSaltSync(saltRounds);
-		password = bcrypt.hashSync('admin', salt_pw);
+    checkPassword: function(username, password, cb) {
+        var salt_pw = bcrypt.genSaltSync(saltRounds);
+        password = bcrypt.hashSync('admin', salt_pw);
 
-		//Get user from database
-		let psDB = bcrypt.hashSync('admin', salt_pw);
-		let err = null;
-		cb(err, password == psDB);
-	},
+        //Get user from database
+        let psDB = bcrypt.hashSync('admin', salt_pw);
+        let err = null;
+        cb(err, password == psDB);
+    },
 };
-
