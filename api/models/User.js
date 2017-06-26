@@ -24,17 +24,25 @@ module.exports = {
 	  	},
 	  	rate: {
 	  		type: 'string'
-	  	}
+	  	},
+		password: {
+			type: 'string'
+		},
+		pw_salt: {
+			type: 'string'
+		}
 	},
 
-	checkPassword: function(username, password, cb) {
-		var salt_pw = bcrypt.genSaltSync(saltRounds);
-		password = bcrypt.hashSync('admin', salt_pw);
-
-		//Get user from database
-		let psDB = bcrypt.hashSync('admin', salt_pw);
-		let err = null;
-		cb(err, password == psDB);
+	checkPassword: function(email, password, cb) {
+		User.findOne({email: email}).exec(function(err, user) {
+			if (user) {
+				var salt_pw = user.pw_salt;
+				hashPassword = bcrypt.hashSync(password, salt_pw);
+				cb(err, hashPassword == user.password, user.id);
+			}
+			else 
+				cb(err, false, null);
+		})
 	},
 };
 

@@ -6,24 +6,33 @@
  */
 
 module.exports = {
+
 	login: function (req, res) {
         let emailAddress = req.body.emailAddress;
         let password = req.body.password;
         let rememberMe = req.body.rememberMe;
 
-        User.checkPassword(emailAddress, password, function (err, auth) {
+        User.checkPassword(emailAddress, password, function (err, auth, userId) {
+            if (err) {
+                req.session.flash = {
+                    error: 'Your email or password was incorrect'
+                };
+                res.redirect('/login');
+            }
             if (auth) {
-                User.findOne({email: emailAddress}).exec(function(err, result) {
-                    console.log(result);
-                })
                 req.session.authenticated = true;
+                req.session.userId = userId;
                 if (rememberMe) {
                     res.cookie('uniqueID','username', { maxAge: 365 * 24 * 60 * 60 * 1000, httpOnly: true });
                 }
                 res.redirect('/');
             } else {
-                res.send('Your username or your password is wrong');
+                req.session.flash = {
+                    error: 'Your email or password was incorrect'
+                };
+                res.redirect('/login');
             }
+            req.session.flash = {};
         })
     },
 
@@ -35,5 +44,28 @@ module.exports = {
             res.cookie('uniqueID','', { maxAge: -10, httpOnly: true });
         }
         res.send('Logout');
+    },
+
+    create: function (req, res) {
+        let user = req.body;
+
+        //at first, we need to check whether user email exist or not
+
+        //assign encrypted password to user password
+        user.password = user.password;
+
+        //assign a default value to user rate, therefore the user will be bidded a product
+
+        User.create({
+            name: user.name,
+            email: user.email,
+            address: user.address,
+            phoneNumber: user.phoneNumber,
+            rate: user.rate,
+            password: user.password,
+            pw_salt: user.pw_salt
+        }).exec(function(err, newuser) {
+            
+        });
     }
 };
