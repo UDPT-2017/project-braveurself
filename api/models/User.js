@@ -10,28 +10,28 @@ const saltRounds = 10;
 
 module.exports = {
 	attributes: {
-		name: {
-  			type: 'string'
-	  	},
-	  	email: {
-	  		type: 'string'
-	  	},
-	  	address: {
-	  		type: 'string'
-	  	},
-	  	phoneNumber: {
-	  		type: 'string'
-	  	},
-	  	rate: {
-	  		type: 'string'
-	  	},
-		password: {
-			type: 'string'
-		},
-		pw_salt: {
-			type: 'string'
-		}
-	},
+        name: {
+            type: 'string'
+        },
+        email: {
+            type: 'string'
+        },
+        address: {
+            type: 'string'
+        },
+        phoneNumber: {
+            type: 'string'
+        },
+        rate: {
+            type: 'integer'
+        },
+        password: {
+            type: 'string'
+        },
+        pw_salt: {
+            type: 'string'
+        }
+    },
 
 	checkPassword: function(email, password, cb) {
 		User.findOne({email: email}).exec(function(err, user) {
@@ -58,4 +58,3 @@ module.exports = {
         });
 	}
 };
-

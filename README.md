@@ -5,6 +5,7 @@
 Thành viên:
 * [x] **1412538** Phan Hữu Thuận (RedHair96)
 * [x] **1412557** Phạm Đức Toàn (nhoxtoong)
+* [x] **1412604** Lữ Hoàng Phi Tuấn
 
 URL: **URL hosting của đề tài**
 Báo cáo: **URL Github Page của đề tài**
@@ -24,23 +25,23 @@ Phần mô tả đặt vào đây
 
 ## Lập trình server
 ### MVC
-* [ ] MVC (MSSV1)
-* [ ] Config (MSSV1)
-* [ ] REST routing (MSSV1)
-* [ ] Layout & partial (MSSV1)
+* [x] MVC (1412538)
+* [x] Config (1412538)
+* [x] REST routing (1412538)
+* [x] Layout & partial (1412538)
 
 ### Lập trình dữ liệu
 * [ ] Thêm (MSSV1)
 * [ ] Xóa (MSSV1)
 * [ ] Sửa (MSSV1)
-* [ ] Tìm kiếm (MSSV1)
+* [x] Tìm kiếm (1412538)
 
 ### Xử lý lỗi
 * [ ] Xử lý lỗi trong cùng trang web (MSSV1)
-* [ ] Xử lý lỗi dùng trang web riêng (MSSV1)
-   * [ ] 401 (MSSV1)
-   * [ ] 404 (MSSV1)
-   * [ ] 500 (MSSV1)
+* [x] Xử lý lỗi dùng trang web riêng (1412538)
+   * [x] 401 (1412538)
+   * [x] 404 (1412538)
+   * [x] 500 (1412538)
 
 ### Tương tác API khác
 Liệt kê các API nhóm đã sử dụng được ở đây
@@ -66,7 +67,9 @@ Liệt kê các API nhóm đã sử dụng được ở đây
 
 ## Chức năng đã thực hiện
 Các **yêu cầu chức năng** (check và ghi MSSV vào các phần chức năng đã thực hiện)
-* [ ] Yêu cầu 1. (MSSV1)
+* [x] Giao diện đăng nhập người dùng (1412538).
+* [x] Trang homepage cho phép xem top 5 sản phẩm có giá cao nhất, top 5 sản phẩm được ra giá nhiều nhất, top 5 sản phẩm sắp hết hạn đấu giá (1412538)
+* [x] Bấm vào sản phẩm trên trang chủ sẽ hiện ra thông tin cụ thể của sản phẩm.
 
 
 ## Demo
