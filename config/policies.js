@@ -29,7 +29,12 @@ module.exports.policies = {
   '*': 'flash',
 
   ProductController: {
-    '*' : ['isLogined']
+    '*' : ['isLogined', 'flash']
+  },
+
+  UserController: {
+    '*' : ['isAuthenticated', 'flash'],
+    'logout': []
   }
 
   /***************************************************************************

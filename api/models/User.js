@@ -44,5 +44,18 @@ module.exports = {
 				cb(err, false, null);
 		})
 	},
+
+	createUser: function(user, cb) {
+		user.pw_salt = bcrypt.genSaltSync(saltRounds);
+		user.password = bcrypt.hashSync(user.password, user.pw_salt);
+		User.create(user).exec(function(err, newuser) {
+            if (err) {
+				console.log(err);
+				cb(err, null);
+			}
+			else 
+				cb(null, newuser)
+        });
+	}
 };
 
