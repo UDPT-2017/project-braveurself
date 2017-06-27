@@ -88,8 +88,7 @@ module.exports = {
             '"startingTime", "finishingTime", "createdAt", "updatedAt", "image1", "image2", "image3", ' +
             '(DATE_PART(\'day\', "finishingTime"::timestamp - current_timestamp::timestamp) * 24 + ' +
             'DATE_PART(\'hour\', "finishingTime"::timestamp - current_timestamp::timestamp)) * 60 + ' +
-            'DATE_PART(\'minute\', "finishingTime"::timestamp - current_timestamp::timestamp) as "minuteRemaining" ' +
-            'from product ' +
+            'DATE_PART(\'minute\', "finishingTime"::timestamp - current_timestamp::timestamp) as "minuteRemaining" ' + s 'from product ' +
             'where (DATE_PART(\'day\', "finishingTime"::timestamp - current_timestamp::timestamp) * 24 + ' +
             'DATE_PART(\'hour\', "finishingTime"::timestamp - current_timestamp::timestamp)) * 60 + ' +
             'DATE_PART(\'minute\', "finishingTime"::timestamp - current_timestamp::timestamp) >= 0 ' +
