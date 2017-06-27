@@ -30,15 +30,23 @@ module.exports = {
         },
         pw_salt: {
             type: 'string'
+        },
+        token: {
+            type: 'string'
         }
     },
 
-	checkPassword: function(email, password, cb) {
+	//callback(error: number, auth: boolean, useId: number)
+	checkAuthenticate: function(email, password, cb) {
 		User.findOne({email: email}).exec(function(err, user) {
 			if (user) {
-				var salt_pw = user.pw_salt;
-				hashPassword = bcrypt.hashSync(password, salt_pw);
-				cb(err, hashPassword == user.password, user.id);
+				if (user.token != null) {
+					cb(1, false, null);
+				} else {
+					var salt_pw = user.pw_salt;
+					hashPassword = bcrypt.hashSync(password, salt_pw);
+					cb(err, hashPassword == user.password, user.id);
+				}
 			}
 			else 
 				cb(err, false, null);
@@ -56,5 +64,22 @@ module.exports = {
 			else 
 				cb(null, newuser)
         });
+	},
+
+	//Callback(error: number, isValidated: boolean)
+	confirmEmail: function(email, token, cb) {
+		User.findOne({email: email}, function(err, user) {
+			if (err) return cb(err);
+			if (user) {
+				if (user.token == token) {
+					user.token = null;
+					user.save(function(err) {
+						cb(null, true);
+					})
+				} else {
+					cb(null, false);
+				}
+			}
+		})
 	}
 };

@@ -18,12 +18,23 @@ module.exports = {
         let password = req.body.password;
         let rememberMe = req.body.rememberMe;
 
-        User.checkPassword(email, password, function (err, auth, userId) {
+        User.checkAuthenticate(email, password, function (err, auth, userId) {
             if (err) {
-                req.session.flash = {
-                    error: 'Your email or password was incorrect'
-                };
-                res.redirect('/login');
+                switch (err) {
+                    case 1:
+                        res.view('user/confirmEmail', {
+                                    layout: null
+                                })
+                        break;
+                
+                    default:
+                        req.session.flash = {
+                            error: 'Your email or password was incorrect'
+                        };
+                        res.redirect('/login');
+                        break;
+                }
+                return;
             }
             if (auth) {
                 req.session.authenticated = true;
@@ -51,7 +62,7 @@ module.exports = {
         if (req.cookies.uniqueID) {
             res.cookie('uniqueID','', { maxAge: -10, httpOnly: true });
         }
-        res.send('Logout');
+        res.redirect('/');
     },
 
     create: function (req, res) {
@@ -72,22 +83,47 @@ module.exports = {
                 return;
             }
             else {
-                user.rate = defaultRate;
-
-                User.createUser({
-                name: user.name,
-                email: user.email,
-                address: user.address,
-                phoneNumber: user.phoneNumber,
-                rate: user.rate,
-                password: user.password,
-                },function(err, newuser) {
-                if (err) {
-                    res.send('There are some thing wrong');
-                }
-                else
-                    res.redirect('/');
+                EmailService.sendValidateEmail(user.email, function(error, token) {
+                    if (error) {
+                        res.send('there are some thing wrong!');
+                    } else {
+                        user.rate = defaultRate;
+                        User.createUser({
+                                name: user.name,
+                                email: user.email,
+                                address: user.address,
+                                phoneNumber: user.phoneNumber,
+                                rate: user.rate,
+                                password: user.password,
+                                token: token
+                            },function(err, newuser) {
+                                if (err) {
+                                    res.send('There are some thing wrong');
+                                }
+                                else {
+                                    res.view('user/confirmEmail', {
+                                        layout: null
+                                    })
+                                }
+                        });
+                    }
                 });
+            }
+        })
+    },
+
+    validate_email: function(req, res) {
+        console.log(req.query);
+        let query = req.query;
+        User.confirmEmail(query.email, query.token, function(err, isVaidated) {
+            if (err) {
+                res.send(err)
+            } else {
+                if (isVaidated) {
+                    res.redirect('/login');
+                } else {
+                    res.badRequest();
+                }
             }
         })
     }

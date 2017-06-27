@@ -46,7 +46,11 @@ module.exports.routes = {
   '/logout': {
     controller: 'UserController',
     action: 'logout'
-  }
+  },
+  // '/user/validate_email/:token/:email': {
+  //   controller: 'UserController',
+  //   action: 'validate_email'
+  // }
 
   /***************************************************************************
    *                                                                          *
