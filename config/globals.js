@@ -10,6 +10,11 @@
  */
 module.exports.globals = {
 
+  error: {
+    incorrect: 1,
+    invalidate: 2
+  }
+
   /****************************************************************************
   *                                                                           *
   * Expose the lodash installed in Sails core as a global variable. If this   *
