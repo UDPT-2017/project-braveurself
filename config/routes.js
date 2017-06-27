@@ -35,6 +35,10 @@ module.exports.routes = {
     controller: 'ProductController',
     action: 'getTop5'
   },
+  '/product/showAddNew': {
+    controller: 'ProductController',
+    action: 'showAddNew'
+  },
   '/product/:id': {
     controller: 'ProductController',
     action: 'getInfo'
