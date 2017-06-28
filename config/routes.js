@@ -22,48 +22,48 @@
 
 module.exports.routes = {
 
-  /***************************************************************************
-   *                                                                          *
-   * Make the view located at `views/homepage.ejs` (or `views/homepage.jade`, *
-   * etc. depending on your default view engine) your home page.              *
-   *                                                                          *
-   * (Alternatively, remove this and add an `index.html` file in your         *
-   * `assets` directory)                                                      *
-   *                                                                          *
-   ***************************************************************************/
-  '/': {
-    controller: 'ProductController',
-    action: 'getTop5'
-  },
-  '/product/showAddNew': {
-    controller: 'ProductController',
-    action: 'showAddNew'
-  },
-  '/product/:id': {
-    controller: 'ProductController',
-    action: 'getInfo'
-  },
-  '/login': {
-    controller: 'UserController',
-    action: 'showLogin'
-  },
-  '/logout': {
-    controller: 'UserController',
-    action: 'logout'
-  },
-  // '/user/validate_email/:token/:email': {
-  //   controller: 'UserController',
-  //   action: 'validate_email'
-  // }
+    /***************************************************************************
+     *                                                                          *
+     * Make the view located at `views/homepage.ejs` (or `views/homepage.jade`, *
+     * etc. depending on your default view engine) your home page.              *
+     *                                                                          *
+     * (Alternatively, remove this and add an `index.html` file in your         *
+     * `assets` directory)                                                      *
+     *                                                                          *
+     ***************************************************************************/
+    '/': {
+        controller: 'ProductController',
+        action: 'getTop5'
+    },
+    '/product': {
+        controller: 'ProductController',
+        action: 'showProducts'
+    },
+    '/product/:id': {
+        controller: 'ProductController',
+        action: 'getInfo'
+    },
+    '/login': {
+        controller: 'UserController',
+        action: 'showLogin'
+    },
+    '/logout': {
+        controller: 'UserController',
+        action: 'logout'
+    },
+    // '/user/validate_email/:token/:email': {
+    //   controller: 'UserController',
+    //   action: 'validate_email'
+    // }
 
-  /***************************************************************************
-   *                                                                          *
-   * Custom routes here...                                                    *
-   *                                                                          *
-   * If a request to a URL doesn't match any of the custom routes above, it   *
-   * is matched against Sails route blueprints. See `config/blueprints.js`    *
-   * for configuration options and examples.                                  *
-   *                                                                          *
-   ***************************************************************************/
+    /***************************************************************************
+     *                                                                          *
+     * Custom routes here...                                                    *
+     *                                                                          *
+     * If a request to a URL doesn't match any of the custom routes above, it   *
+     * is matched against Sails route blueprints. See `config/blueprints.js`    *
+     * for configuration options and examples.                                  *
+     *                                                                          *
+     ***************************************************************************/
 
 };

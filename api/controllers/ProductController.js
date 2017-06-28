@@ -28,6 +28,14 @@ module.exports = {
         })
     },
 
+    showProducts: function(req, res) {
+        Product.find().exec(function(err, result) {
+            res.view('product/index', {
+                products: result,
+            });
+        });
+    },
+
     /*
     getAll: function(req, res) {
     	Product.getAll(function(err, result) {
