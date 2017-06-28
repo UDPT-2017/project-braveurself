@@ -60,18 +60,17 @@
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav" style="float: right;">
                     <li>
-                        <form class="navbar-form navbar-right">
-                            <input type="text" class="form-control" placeholder="Search..." size="50">
+                        <a href="/product">Product</a>
+                    </li>
+                    <li>
+                        <a href="">Community</a>
+                    </li>
+                    <li>
+                        <form id="search-form" class="navbar-form navbar-right" action="/product/search" method="post" role="form">
+                            <input id="search" type="text" class="form-control" placeholder="Search..." size="50">
                         </form>
-                    </li>
-
-                    <li>
-                        <a href="#">Sản phẩm</a>
-                    </li>
-                    <li>
-                        <a href="#">Cộng đồng</a>
                     </li>
                 </ul>
 
@@ -87,11 +86,11 @@
         <div class="row row-offcanvas row-offcanvas-left">
             <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebarLeft" role="navigation">
                 <ul class="nav nav-sidebar">
-                    <li><a href=""><span>Tin nhắn</span><span class="glyphicon glyphicon-envelope" style=" float: right;"></span></a></li>
-                    <li><a href=""><span>Cài đặt</span><span class="glyphicon glyphicon-cog" style=" float: right;"></span></a></li>
-                    <li><a href="/login"><span>Đăng nhập</span><span class="glyphicon glyphicon-log-in" style=" float: right;"></span></a></li>
-                    <li><a href="/logout"><span>Đăng xuất</span><span class="glyphicon glyphicon-log-out" style=" float: right;"></span></a></li>
-                    <li><a href="/register"><span>Đăng kí</span><span class="glyphicon glyphicon-registration-mark" style=" float: right;"></span></a></li>
+                    <li><a href=""><span>Message</span><span class="glyphicon glyphicon-envelope" style=" float: right;"></span></a></li>
+                    <li><a href=""><span>Profile</span><span class="glyphicon glyphicon-cog" style=" float: right;"></span></a></li>
+                    <li><a href="/login"><span>Login</span><span class="glyphicon glyphicon-log-in" style=" float: right;"></span></a></li>
+                    <li><a href="/logout"><span>Logout</span><span class="glyphicon glyphicon-log-out" style=" float: right;"></span></a></li>
+                    <li><a href="/register"><span>Register</span><span class="glyphicon glyphicon-registration-mark" style=" float: right;"></span></a></li>
                 </ul>
             </div>
             <div class="col-xs-12 col-sm-9">
@@ -143,7 +142,7 @@
     -->
 
     <!--TEMPLATES-->
-    
+
     <!--TEMPLATES END-->
 
 

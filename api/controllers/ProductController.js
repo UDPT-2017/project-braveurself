@@ -26,6 +26,14 @@ module.exports = {
                 product: result,
             });
         })
+    },
+
+    showProducts: function(req, res) {
+        Product.find().exec(function(err, result) {
+            res.view('product/index', {
+                products: result,
+            });
+        });
     }
 
     /*

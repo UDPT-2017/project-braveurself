@@ -1,0 +1,86 @@
+<style>
+    h5>b {
+        color: red;
+    }
+</style>
+<div class="col-lg-12" style="font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;">
+    <h2 class="page-header">Product</h2>
+</div>
+<%products.forEach(function(product){%>
+    <div class="row" style="font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;">
+        <div class="col-lg-4 col-sm-6 col-xs-12">
+            <%var urlProduct = "/product/" + product.id;%>
+                <a href=<%=urlProduct%>>
+                    <img class="img-responsive img-center" src=<%=product.image1%> alt="not found">
+                </a>
+        </div>
+        <div class="col-lg-4 col-sm-6 col-xs-12" style="float:left;">
+            <h2>
+                <%=product.name%>
+            </h2>
+            <h4>
+                <small>Current price:</small>
+                <%=product.curPrice%>
+            </h4>
+            <h4>
+                <small>Immediate price:</small>
+                <%=product.immediatePrice%>
+            </h4>
+            <h5>
+                <%now = new Date()%>
+                    <%if (product.finishingTime < now) {%>
+                        <b>Expired!</b>
+                        <%}else{%>
+                            <i><b>
+                            <!khoảng cách đến ngày hết hạn đấy giá, lấy phần nguyên của giây>
+                            <%var periodTime = Math.floor((product.finishingTime - now) / 1000);%>
+                            
+                            <% var countSecond = Math.floor(periodTime % 60);%>
+                            <% periodTime = Math.floor(periodTime / 60);%>
+                            
+                            <% var countMinute = Math.floor(periodTime % 60);%>
+                            <% periodTime = Math.floor(periodTime / 60);%>
+                            
+                            <% var countHour = Math.floor(periodTime % 24);%>
+                            <% periodTime = Math.floor(periodTime / 24);%>
+                            
+                            <% var countDate = Math.floor(periodTime % 365);%>
+                             
+                            <% var countYear = Math.floor(periodTime / 365);%>
+                                       
+                            <%if (countYear > 0) {%>
+                                <span>
+                                    <%=countYear%> year(s) <%=countMonth%> month(s)
+                                </span>
+                                <%} else {%>
+                                            <%if (countDate > 0) {%>
+                                                <span>
+                                    <%=countDate%> day(s) <%=countHour%> hour(s)
+                                </span>
+                                                <%} else {%>
+                                                    <%if (countHour > 0) {%>
+                                                        <span>
+                                    <%=countHour%> hour(s) <%=countMinute%> minute(s)
+                                </span>
+                                                        <%} else {%>
+                                                            <%if (countMinute > 0) {%>
+                                                                <span>
+                                    <%=countMinute%> minute(s) <%=countSecond%> seccond(s)
+                                </span>
+                                                                <%} else {%>
+                                                                    <%}}}}%>
+                        remaining.                                                         
+                        </b> </i>
+                            <%}%>
+            </h5>
+
+        </div>
+        <div class="col-lg-4 col-sm-12 col-xs-12 section" style="padding-bottom:20px;">
+            <button class="btn btn-success" style="float: right; margin-right:20px"><span style="margin-right:20px" class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Bidding</button>
+        </div>
+    </div>
+    <div class="row">
+        <hr>
+    </div>
+
+    <%});%>
