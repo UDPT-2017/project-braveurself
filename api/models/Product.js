@@ -27,7 +27,7 @@ module.exports = {
         },
 
         owner: {
-            tpye: 'integer'
+            type: 'integer'
         },
 
         highestBidder: {
@@ -49,8 +49,10 @@ module.exports = {
         },
         image3: {
             type: 'string'
+        },
+        startingPrice: {
+            type: 'string'
         }
-
     },
 
     getHighestPriceItems: function(callback) {
