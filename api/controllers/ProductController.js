@@ -34,7 +34,7 @@ module.exports = {
                 products: result,
             });
         });
-    }
+    },
 
     /*
     getAll: function(req, res) {
@@ -49,7 +49,7 @@ module.exports = {
     }
     */
 
-        showAddNew: function(req, res) {
+    showAddNew: function(req, res) {
         console.log("Debug");
         res.view('product/new');
     }
