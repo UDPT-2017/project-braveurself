@@ -113,7 +113,6 @@ module.exports = {
     },
 
     validate_email: function(req, res) {
-        console.log(req.query);
         let query = req.query;
         User.confirmEmail(query.email, query.token, function(err, isVaidated) {
             if (err) {
@@ -125,6 +124,25 @@ module.exports = {
                     res.badRequest();
                 }
             }
+        })
+    },
+
+    profile: function(req, res) {
+        let id = req.session.userId;
+        User.findOne({id: id}, function(error, user) {
+            if (error) return res.send(404);
+            res.view('user/profile', {
+                user: user
+            })
+        })
+    },
+
+    updateProfile: function(req, res) {
+        let user = req.body;
+        user.id = req.session.userId;
+        User.updateUser(user, function(error) {
+            if (error) return res.send(404);
+            res.redirect('/user/profile');
         })
     }
 };

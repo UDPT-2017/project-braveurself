@@ -1,0 +1,106 @@
+<div class="container">
+  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          <%= user.name %>
+        </h3>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="https://cdn3.iconfinder.com/data/icons/users-6/100/654853-user-men-2-512.png" class="img-circle img-responsive">            </div>
+
+          <!--<div class="col-xs-10 col-sm-10 hidden-md hidden-lg"> <br>
+                  <dl>
+                    <dt>DEPARTMENT:</dt>
+                    <dd>Administrator</dd>
+                    <dt>HIRE DATE</dt>
+                    <dd>11/12/2013</dd>
+                    <dt>DATE OF BIRTH</dt>
+                       <dd>11/12/2013</dd>
+                    <dt>GENDER</dt>
+                    <dd>Male</dd>
+                  </dl>
+                </div>-->
+          <div class=" col-md-9 col-lg-9 ">
+            <table class="table table-user-information">
+              <tbody>
+                <tr>
+                  <tr>
+                    <td>Home Address</td>
+                    <td>
+                      <%= user.address %>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Email</td>
+                    <td>
+                      <a href="mailto:<%= user.email %>">
+                        <%= user.email %>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Phone Number</td>
+                    <td>
+                      <%= user.phoneNumber %>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Role</td>
+                    <td>
+                      <% if (user.role == 1) { %>
+                        Admin
+                        <% } else { %>
+                        User
+                        <% } %>
+                    </td>
+                  </tr>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="panel-footer">
+        <a data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
+        <span class="pull-right">
+                            <a href="/admin/user/delete/<%= user.id %>" data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
+                        </span>
+      </div>
+
+    </div>
+
+    <button class="btn btn-primary" data-toggle="collapse" data-target="#demo">Reset Password</button>
+
+    <div id="demo" class="collapse">
+      <form method="POST" action="/admin/resetPassword" class="form-horizontal" style=" background-color: #E9EBEE;
+                                            padding: 20px;
+                                            margin-top: 5px;
+                                            border-radius: 5px;">
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="email">Email:</label>
+          <div class="col-sm-10">
+            <input type="email" class="form-control" id="email" placeholder="Enter email" 
+                   value="<%= user.email %>" readonly name="email">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="pwd">Password:</label>
+          <div class="col-sm-10">
+            <input type="password" class="form-control" id="pwd" 
+                    placeholder="Enter password" required name="password">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-default">Reset</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+  </div>
+
+
+</div>

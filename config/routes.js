@@ -51,6 +51,14 @@ module.exports.routes = {
         controller: 'UserController',
         action: 'logout'
     },
+    '/admin/user/edit/:id': {
+        controller: 'AdminController',
+        action: 'editUser'
+    },
+    '/admin/user/delete/:id': {
+        controller: 'AdminController',
+        action: 'deleteUser'
+    }
     // '/user/validate_email/:token/:email': {
     //   controller: 'UserController',
     //   action: 'validate_email'

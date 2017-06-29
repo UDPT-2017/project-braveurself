@@ -10,6 +10,9 @@ const saltRounds = 10;
 
 module.exports = {
 	attributes: {
+		id: {
+			type: 'number'
+		},
         name: {
             type: 'string'
         },
@@ -33,7 +36,10 @@ module.exports = {
         },
         token: {
             type: 'string'
-        }
+        },
+		role: {
+			type: 'integer'
+		}
     },
 
 	//callback(error: number, auth: boolean, useId: number)
@@ -81,5 +87,35 @@ module.exports = {
 				}
 			}
 		})
+	},
+
+	updatePassword: function(email, password, cb) {
+		let pw_salt = bcrypt.genSaltSync(saltRounds);
+		password = bcrypt.hashSync(password, pw_salt);
+		User.findOne({email: email}, function(error, user) {
+			if (error) return cb(error);
+			user.password = password;
+			user.pw_salt = pw_salt;
+			user.save(function(error) {
+				if (error) return cb(error);
+				cb(null);
+			})
+		})
+	},
+
+	updateUser: function(user, cb) {
+        User.findOne({id: user.id}, function(error, oldUser) {
+            if (error) return cb(error);
+			oldUser.pw_salt = bcrypt.genSaltSync(saltRounds);
+			oldUser.password = bcrypt.hashSync(user.password, oldUser.pw_salt);
+            oldUser.email = user.email;
+            oldUser.name = user.name;
+            oldUser.address = user.address;
+            oldUser.phoneNumber = user.phoneNumber;
+			oldUser.save(function(error) {
+				if (error) return cb(error);
+				cb(null);
+			})
+        })
 	}
 };
