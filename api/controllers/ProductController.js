@@ -26,7 +26,15 @@ module.exports = {
                 product: result,
             });
         })
-    }
+    },
+
+    showProducts: function(req, res) {
+        Product.find().exec(function(err, result) {
+            res.view('product/index', {
+                products: result,
+            });
+        });
+    },
 
     /*
     getAll: function(req, res) {
@@ -40,4 +48,8 @@ module.exports = {
     	});
     }
     */
+
+    showAddNew: function(req, res) {
+        res.view('product/new');
+    },
 };

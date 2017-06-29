@@ -35,16 +35,26 @@ module.exports.routes = {
         controller: 'ProductController',
         action: 'getTop5'
     },
+    '/product': {
+        controller: 'ProductController',
+        action: 'showProducts'
+    },
     '/product/:id': {
         controller: 'ProductController',
         action: 'getInfo'
     },
     '/login': {
-        view: 'user/login',
-        locals: {
-            layout: null
-        }
-    }
+        controller: 'UserController',
+        action: 'showLogin'
+    },
+    '/logout': {
+        controller: 'UserController',
+        action: 'logout'
+    },
+    // '/user/validate_email/:token/:email': {
+    //   controller: 'UserController',
+    //   action: 'validate_email'
+    // }
 
     /***************************************************************************
      *                                                                          *

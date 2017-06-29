@@ -1,0 +1,36 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Starting Price</th>
+      <th>Immediate Price</th>
+      <th>Current Price</th>
+      <th>Ower</th>
+      <th>Starting time</th>
+      <th>Finishing time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% products.forEach(function(product, index){ %>
+      <tr id="<%= index + 1 %>" onclick="selectedProduct('<%= index + 1 %>', <%= product.id%>)">
+        <th scope="row"><%= index + 1 %></th>
+        <td><%= product.name %></td>
+        <td><%= product.startingPrice %></td>
+        <td><%= product.immediatePrice %></td>
+        <td><%= product.curPrice %></td>
+        <td><%= product.owner %></td>
+        <td><%= product.startingTime %></td>
+        <td><%= product.finishingTime %></td>
+      </tr>
+      <% }); %>
+  </tbody>
+  <button type="button" class="btn btn-primary" onclick="approveList()" style="margin-right: 2%">Approve</button>
+  <button type="button" class="btn btn-danger" onclick="ignoreList()">Ignore</button>
+</table>
+<script src="/js/product/approved.js"></script>
+<style>
+    .selected {
+        background-color: #96cce6;
+    }
+</style>
