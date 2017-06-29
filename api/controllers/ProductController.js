@@ -35,6 +35,20 @@ module.exports = {
             });
         });
     },
+    findByName: function(req, res) {
+        var findString = '%' + req.body.search + '%';
+        Product.find({
+            where: {
+                name: {
+                    like: findString,
+                }
+            }
+        }).exec(function(err, result) {
+            res.view('product/index', {
+                products: result,
+            });
+        });
+    },
 
     /*
     getAll: function(req, res) {
@@ -52,5 +66,9 @@ module.exports = {
     showAddNew: function(req, res) {
         console.log("Debug");
         res.view('product/new');
+    },
+
+    bidding: function(req, res) {
+        console.log(req.session.userId);
     }
 };

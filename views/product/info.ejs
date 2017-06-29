@@ -59,8 +59,20 @@
 
         <!-- Botones de compra -->
         <div class="section" style="padding-bottom:20px;">
-            <button class="btn btn-success"><span style="margin-right:20px" class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Bidding</button>
-            <h6><a href=""><span class="glyphicon glyphicon-heart-empty" style="cursor:pointer;"></span> Favorite </a></h6>
+            <a href="javascript:void(0)" class="button">
+                <div data-toggle="collapse" data-target="#DetailProduct">
+                    <button class="btn btn-success"><span style="margin-right:20px" class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Bidding</button>
+                </div>
+            </a>
+        </div>
+        <div class="section" style="padding-bottom:20px;">
+            <div id="DetailProduct" class="collapse out">
+                <form id="search-form" action="" method="post" role="form">
+                    <input name="biddingPrice" type="text" class="form-control" placeholder="Enter your price..." size="30">
+                    <input type="submit" style="height: 0px; width: 0px; border: none; padding: 0px;" hidefocus="true" />
+                </form>
+                <h6><a href=""><span class="glyphicon glyphicon-heart-empty" style="cursor:pointer;"></span> Favorite </a></h6>
+            </div>
         </div>
     </div>
 </div>

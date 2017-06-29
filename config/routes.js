@@ -31,23 +31,43 @@ module.exports.routes = {
      * `assets` directory)                                                      *
      *                                                                          *
      ***************************************************************************/
-    '/': {
+    'GET /community': {
+        controller: 'UserController',
+        action: 'findAll'
+    },
+    'POST /community': {
+        controller: 'ProductController',
+        action: 'findByName'
+    },
+    'POST /': {
+        controller: 'ProductController',
+        action: 'findByName'
+    },
+    'GET /': {
         controller: 'ProductController',
         action: 'getTop5'
     },
-    '/product': {
+    'GET /product': {
         controller: 'ProductController',
         action: 'showProducts'
     },
-    '/product/:id': {
+    'POST /product': {
+        controller: 'ProductController',
+        action: 'findByName'
+    },
+    'POST /product/:id': {
+        controller: 'ProductController',
+        action: 'bidding'
+    },
+    'GET /product/:id': {
         controller: 'ProductController',
         action: 'getInfo'
     },
-    '/login': {
+    'GET /login': {
         controller: 'UserController',
         action: 'showLogin'
     },
-    '/logout': {
+    'GET /logout': {
         controller: 'UserController',
         action: 'logout'
     },

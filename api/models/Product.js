@@ -19,11 +19,11 @@ module.exports = {
         },
 
         curPrice: {
-            type: 'float'
+            type: 'bigint'
         },
 
         immediatePrice: {
-            type: 'float'
+            type: 'bigint'
         },
 
         owner: {
@@ -48,9 +48,11 @@ module.exports = {
             type: 'string'
         },
         image3: {
-            type: 'string'
+            type: 'string',
+        },
+        description: {
+            type: 'string',
         }
-
     },
 
     getHighestPriceItems: function(callback) {
@@ -79,6 +81,7 @@ module.exports = {
             'order by "countTimeBidding" DESC ' +
             'limit 5;';
         Product.query(sql, function(err, result) {
+            console.log(result);
             return callback(result.rows);
         });
     },
@@ -97,7 +100,13 @@ module.exports = {
         Product.query(sql, function(err, result) {
             return callback(result.rows);
         });
-    }
+    },
+    // findByName: function(name, callback) {
+    //     var sql = 'select * from product where name like \'%' + name + '%\'';
+    //     Product.query(sql, function(err, result) {
+    //         return callback(err, result.rows);
+    //     });
+    // }
 
 
     /*
